@@ -1,0 +1,4 @@
+Backend yang menjalankan klasifikasi topik pada tweet twitter
+mengambil data dari api twitter
+
+kalau perlu kode api bisa di chat ya

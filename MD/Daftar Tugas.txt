@@ -1,0 +1,5 @@
+Menampilkan list tweet
+Menalmpilkan list jurnal(abstrak dan link akses)
+hyperlink ke link website yang disiapkan
+Data untuk menampilkan tweets ada di folder ML (file: final_data_mentah.csv)
+Data Jurnal dan jurnal menyusul
