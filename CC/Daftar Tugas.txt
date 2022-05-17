@@ -2,3 +2,7 @@ Backend yang menjalankan klasifikasi topik pada tweet twitter
 mengambil data dari api twitter
 
 kalau perlu kode api bisa di chat ya
+
+masalah :
+- database migrate pada backend belum berjalan sehingga belum dapat mengambil atau menginput data
+  kedatabase.
