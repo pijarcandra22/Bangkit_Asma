@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CapstoneProject</string>
+    <string name="search_hint">Masukkan Nama Pengguna</string>
+    <string name="cari">Search</string>
+</resources>
