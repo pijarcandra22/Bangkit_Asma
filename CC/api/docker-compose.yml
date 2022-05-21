@@ -1,0 +1,18 @@
+version: "3.7"
+services: 
+  postgres:
+    image: postgres:13.6
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: postgres
+      POSTGRES_DB: topicapp
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  app:
+    image: topicapp
+    depends_on:
+      - postgres
+    ports:
+      - "5000:5000"
