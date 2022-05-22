@@ -1,12 +1,15 @@
-const mapTopic = (payload) => (
+const mapTopic = (payload, result) => (
     {
-        topic: payload.topic, 
-        keyword: payload.keyword,
+        topic: payload.name, 
+        keyword: payload.keywords,
         text: payload.text,
-        paper: payload.map(payload)
+        paperTitle: payload.title
     });
 
 const mapPaper = (payload) => ({
-    name: payload.name,
+    topic: payload.name,
+    title: payload.title,
     url: payload.url
 });
+
+module.exports = {mapTopic, mapPaper}

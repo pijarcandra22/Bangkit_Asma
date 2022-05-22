@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({path:__dirname+'/.env'});
 const Hapi = require('@hapi/hapi');
 
 // topic module
@@ -14,8 +14,8 @@ const serverStart = async () => {
     const paperService = new PaperService();
 
     const server = Hapi.server({
-        port: process.env.PORT,
-        host: process.env.HOST,
+        port: 8080,
+        host: '0.0.0.0',
         routes: {
             cors: {
                 origin: ['*']
@@ -48,7 +48,13 @@ const serverStart = async () => {
         }
         return response.continue || response;
     })
-    
+    await server.route({
+        path: '/',
+        method: 'GET',
+        handler: (request, h) => {
+            return 'hello world'
+        }
+    })
     await server.start();
     console.log(`server running on ${server.info.uri}`);
 }

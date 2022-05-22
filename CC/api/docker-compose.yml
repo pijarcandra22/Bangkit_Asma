@@ -1,18 +1,39 @@
-version: "3.7"
+version: '3.8'
 services: 
   postgres:
-    image: postgres:13.6
+    image: postgres:13
+    restart: always
     environment:
       POSTGRES_PASSWORD: 123456
       POSTGRES_USER: postgres
-      POSTGRES_DB: topicapp
+      POSTGRES_DB: topicapp 
     volumes:
       - ./pgdata:/var/lib/postgresql/data
+      - ./pgdata/init.sql:/docker-entrypoint-initdb.d/initial_config.sql
     ports:
-      - "5432:5432"
+      - '5432:5432'
   app:
+    container_name: topicapp
+    build:
+      context: ./
+      target: production
     image: topicapp
     depends_on:
       - postgres
     ports:
-      - "5000:5000"
+      - '5000:8080'
+    environment:
+      NODE_ENV: production
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: 123456
+      DB_NAME: topicapp
+    links:
+      - postgres
+    volumes:
+      - ./:/src
+      - /src/node_modules
+volumes:
+  postgres: 
+    driver: local
