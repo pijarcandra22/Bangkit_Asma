@@ -8,11 +8,11 @@ class PaperService{
     }
 
     async addPaper(payload, topicId) {
-        const { title, url } = payload;
+        const { title, url, author, abstract } = payload;
         const id = `paper-${nanoid(16)}`;
         const query = {
-            text: 'insert into papers values($1,$2,$3,$4) returning id',
-            values: [id, title, url, topicId]
+            text: 'insert into papers values($1,$2,$3,$4,$5,$6) returning id',
+            values: [id, title, url, topicId, author, abstract]
         }
         const result = await this._pool.query(query);
         if(result.rowCount < 1) {

@@ -7,10 +7,8 @@ class TopicService{
 
     async getAllTopic(){
         const query = {
-            text: `select t.name, t.keywords, t.text, p.title, p.url
-                   from topics t
-                   left join papers p 
-                   on t.id = p.topic_id`
+            text: `select t.name, t.keywords, t.text
+                   from topics t`
         }
         
         const result = await this._pool.query(query);
@@ -22,14 +20,13 @@ class TopicService{
 
     async getAllPaperByTopicId(topicId) {
         const query = {
-            text: `select t.name, t.keywords, t.text, p.title, p.url
+            text: `select t.name, t.keywords, t.text, p.*
                    from topics t
                    left join papers p 
                    on t.id = p.topic_id
-                   where p.topic_id = $1`,
+                   where t.id = $1`,
             values: [topicId]
         }
-        
         const result = await this._pool.query(query);
         if(result.rowCount < 1) {
             throw new Error("topic tidak ada")

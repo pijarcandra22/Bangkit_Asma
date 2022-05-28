@@ -10,18 +10,33 @@ this is where you make a request to get data that already process by model
 Response
 - body: 
     ```json
-        "status": "success",
+        "status": "string",
         "data": [
             {
                 "topic":"string",
                 "keyword": "string",
                 "text": "text",
-                "paper": [
-                    {
-                        "name" : "string",
-                        "url" : "string"
-                    }
-                ]
+            }
+        ]
+    ```
+## Topic
+### get paper by topic id
+Request
+
+- method: GET
+- endpoint: /api/v1/topic/{topicId}
+
+Response
+- body: 
+    ```json
+        "status": "string",
+        "data": [
+            {
+                "topic":"string",
+                "title": "string",
+                "url": "string",
+                "author": "string",
+                "abstract": "text"
             }
         ]
     ```
@@ -35,6 +50,7 @@ Request
 - body: 
     ```json
        {
+           "name": "string",
            "dominant_topic": "number",
            "Topic_perc": "double",
            "keywords": "string",
@@ -45,7 +61,7 @@ Response
 - body:
     ```json
         {
-            "status": "success",
+            "status": "string",
             "data": {
                 "topic_id": "string"
             }
@@ -56,21 +72,24 @@ Response
 
 Request
 - method: POST
-- endpoint: api/v1/paper/{topicId:string}
+- endpoint: api/v1/paper/{topicId}
 - body: 
     ```json
         {
-            "name": "string",
+            "title": "string",
             "url": "string",
+            "author": "string",
+            "abstract": "string"
         }
     ```
 Response
 - body: 
     ```json
         {
-            "status": "success",
+            "status": "string",
             "message": "string"
         }
     ```
+
 
 

@@ -9,7 +9,10 @@ const mapTopic = (payload, result) => (
 const mapPaper = (payload) => ({
     topic: payload.name,
     title: payload.title,
-    url: payload.url
+    url: payload.url,
+    author: payload.author,
+    abstract: payload.abstract
+
 });
 
 module.exports = {mapTopic, mapPaper}
