@@ -81,6 +81,7 @@ class Preprocessing:
 
 class PreprocessingText(Preprocessing):
     def __init__(self,csvFile):
+        Preprocessing.__init__(self)
         """Data yang di Inputkan merupakan nama file csv tempat tweet disimpan"""
         self.csvFile   = pd.read_csv(csvFile) #File Utama
         self.csvFile.columns = ["datetime", "text"]
@@ -136,6 +137,7 @@ class PreprocessingText(Preprocessing):
 
 class PreprocessingJournal(Preprocessing):
     def __init__(self,tsvFile):
+        Preprocessing.__init__(self)
         self.tsvFile = pd.read_csv(tsvFile, sep='\t')
         self.parameter = 0
     
