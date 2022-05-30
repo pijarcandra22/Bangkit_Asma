@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CapstoneProject">
         <activity
+            android:name=".listmenu"
+            android:exported="false" />
+        <activity
             android:name=".ListJurnal"
             android:exported="false" />
         <activity
