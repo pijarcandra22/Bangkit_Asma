@@ -1,4 +1,4 @@
-require('dotenv').config({path:__dirname+'/.env'});
+require('dotenv').config();
 const Hapi = require('@hapi/hapi');
 
 // topic module
@@ -15,7 +15,7 @@ const serverStart = async () => {
 
     const server = Hapi.server({
         port: 8080,
-        host: '0.0.0.0',
+        host: process.env.HOST,
         routes: {
             cors: {
                 origin: ['*']
