@@ -119,7 +119,7 @@ class PreprocessingText(Preprocessing):
             prediction = self.model.predict(np.array([x_test[i]]))
             predicted_label = text_labels[np.argmax(prediction)]
             self.csvFile['Topik'][i] = predicted_label
-        self.csvFile.to_csv('TweetDataUse.csv', sep='\t')
+        self.csvFile.to_csv('TweetDataUse.csv')
         self.csvFile.to_json('TweetDataUse.json')
         print('Data Berhasil Disimpan')
             
@@ -195,6 +195,6 @@ class PreprocessingJournal(Preprocessing):
         self.tsvFile['AbsIndo'] = [' '.join(map(str, l)) for l in self.tsvFile['AbsIndo']]
         self.tsvFile['CleanAbs'] = self.tsvFile['AbsIndo'].apply(self.getFeatureVectorJournal)
         self.tsvFile['embeds'] = self.tsvFile['CleanAbs'].apply(self.EmbedToList2)
-        self.tsvFile.to_csv('JournalDataUse.csv', sep='\t')
+        self.tsvFile.to_csv('JournalDataUse.csv')
         self.tsvFile.to_json('JournalDataUse.json')
         print('Data Berhasil Disimpan')
