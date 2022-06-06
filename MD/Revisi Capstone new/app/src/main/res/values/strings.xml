@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Capstone</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_text_2">Journal Terkait</string>
+    <string name="text_trend">Trending Topik</string>
+    <string name="tab_text_1">Tweet Terkait</string>
+    <string name="tweet">Tweet</string>
+    <string name="TA">TA</string>
+    <string name="descr">Menghadapi</string>
+    <string name="desc">Buatmu Bernafas Lega</string>
+    <string name="asma">ASMA</string>
+    <string name="tending_topik">Tending Topik</string>
+    <string name="ta">TA</string>
+    <string name="asistenmahasiswa">Asisten Mahasiswa :</string>
+    <string name="buatmu_bernafas_lega">Buatmu Bernafas Lega</string>
+    <string name="menghadapi">Menghadapi</string>
+    <string name="asisten_mahasiswa_buatmu_bernafas_lega">Asisten Mahasiswa : Buatmu Bernafas Lega</string>
+    <string name="menghadapi_ta">Menghadapi TA</string>
+    <string name="kalo_rame_lanjut_part_2">kalo rame lanjut part 2</string>
+</resources>
