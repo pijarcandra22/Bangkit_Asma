@@ -7,15 +7,15 @@ const mapTopic = (payload) => (
 
 const mapTweets = (payload) => (
     {
-        keyword: payload.Keyword,
-        topic: payload.IdTopik, 
+        keyword: payload.keyword,
+        topic: payload.idtopik, 
     });
 
 const mapPaper = (payload) => ({
-    title: payload.Judul,
-    url: payload.PDF_LINK,
-    author: payload.Penulis,
-    abstract: payload.Abstrak
+    title: payload.judul,
+    url: payload.url,
+    author: payload.penulis,
+    abstract: payload.abstrak
 });
 
 module.exports = {mapTopic, mapPaper, mapTweets}
