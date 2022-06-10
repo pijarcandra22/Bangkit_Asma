@@ -34,15 +34,17 @@ Response
 - body: 
     ```json
         "status": "string",
-        "count": "integer",
-        "jurnals": [
-            {
-                "title":"string",
-                "url": "string",
-                "author": "string",
-                "abstract": "string",
-            }
-        ]
+        "data": {
+            "count": "integer",
+            "jurnals": [
+                {
+                    "title":"string",
+                    "url": "string",
+                    "author": "string",
+                    "abstract": "string",
+                }
+            ]
+        }
     ```
 
 ### get tweet based on topik 
