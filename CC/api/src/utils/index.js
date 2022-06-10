@@ -1,15 +1,21 @@
-const mapTopic = (payload, result) => (
+const mapTopic = (payload) => (
     {
-        topic: payload.topik, 
+        topic: parseInt(payload.topik),
+        text: payload.text, 
         datetime: payload.datetime,
     });
 
+const mapTweets = (payload) => (
+    {
+        keyword: payload.Keyword,
+        topic: payload.IdTopik, 
+    });
+
 const mapPaper = (payload) => ({
-    topic: payload.topik,
-    title: payload.judul,
-    url: payload.pdf_link,
-    author: payload.penulis,
-    abstract: payload.abstrak
+    title: payload.Judul,
+    url: payload.PDF_LINK,
+    author: payload.Penulis,
+    abstract: payload.Abstrak
 });
 
-module.exports = {mapTopic, mapPaper}
+module.exports = {mapTopic, mapPaper, mapTweets}

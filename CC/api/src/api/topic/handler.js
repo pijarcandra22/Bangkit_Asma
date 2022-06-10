@@ -1,4 +1,4 @@
-const { mapTopic, mapPaper } = require('../../utils');
+const { mapTopic, mapPaper, mapTweets } = require('../../utils');
 
 class TopicHandler{
     constructor(service){
@@ -6,6 +6,7 @@ class TopicHandler{
         
         this.getTopicHandler = this.getTopicHandler.bind(this);
         this.postTopicHandler = this.postTopicHandler.bind(this);
+        this.getAllTweetHandler = this.getAllTweetHandler.bind(this);
         this.getAllPaperByTopicId = this.getAllPaperByTopicId.bind(this);
     }
 
@@ -25,11 +26,28 @@ class TopicHandler{
 
     async getTopicHandler(request, h) {
         try {
-            const result = await this._service.getAllTopic();
-            // console.log(result);
+            const result = await this._service.getAllTopic(request.params.topicId);
             return h.response({
                 status: 'success',
-                data: result.map(mapTopic),
+                data: {
+                    count: result.length,
+                    topic: result.map(mapTopic)
+                },
+            }).code(200);
+        }catch(e) {
+            return e;
+        }
+    }
+
+    async getAllTweetHandler(request, h) {
+        try {
+            const result = await this._service.getAllTweet();
+            return h.response({
+                status: 'success',
+                data: {
+                    count: result.length,
+                    tweets: result.map(mapTweets)
+                },
             }).code(200);
         }catch(e) {
             return e;
@@ -41,7 +59,10 @@ class TopicHandler{
             const result = await this._service.getAllPaperByTopicId(request.params.topicId);
             return h.response({
                 status: 'success',
-                data: result.map(mapPaper),
+                data: {
+                    count: result.length,
+                    jurnals: result.map(mapPaper)
+                },
             }).code(200);
         }catch(e) {
             return e;
