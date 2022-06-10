@@ -12,10 +12,10 @@ const mapTweets = (payload) => (
     });
 
 const mapPaper = (payload) => ({
-    title: payload.judul,
-    url: payload.url,
-    author: payload.penulis,
-    abstract: payload.abstrak
+    title: payload.Judul,
+    url: payload.PDF_Link,
+    author: payload.Penulis,
+    abstract: payload.Abstrak
 });
 
 module.exports = {mapTopic, mapPaper, mapTweets}

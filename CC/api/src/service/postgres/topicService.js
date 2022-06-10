@@ -23,7 +23,7 @@ class TopicService{
 
     async getAllPaperByTopicId(topic) {
         // const result = await this._pool.select('t.topik','j.*').from('topik as t').leftJoin('jurnal as j', 't.id', 'j.topik_id').where('t.id',topicId);
-        const result = await this._pool.select('j.*').from('jurnal as j').orderBy('topik_'+topic, 'desc').limit(10)
+        const result = await this._pool.select('j.*').from('jurnal as j').orderBy('Topik_'+topic, 'desc').limit(10)
         if(result.length < 1) {
             throw new Error("topic tidak ada")
         }
