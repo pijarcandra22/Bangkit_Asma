@@ -1,75 +1,74 @@
 # API SPECS
 
 ## Topic
-### get data from topic
+### get topic from tweets
 Request
 this is where you make a request to get data that already process by model
 - method: GET
-- endpoint: /api/v1/topic
+- endpoint: https://asma-app-anedstf2sq-et.a.run.app/api/v1/tweets/
 
 Response
 - body: 
     ```json
-        "status": "success",
+        "status": "string",
         "data": [
             {
-                "topic":"string",
-                "keyword": "string",
-                "text": "text",
-                "paper": [
+                "count": "integer",
+                "tweets": [
                     {
-                        "name" : "string",
-                        "url" : "string"
+                        "keyword": "string",
+                        "topic": "integer"
                     }
-                ]
+                ]   
             }
         ]
     ```
-
-### post data to database
-this api for model to store the data output to database 
-
+## Topic
+### get paper by topic id
 Request
-- method: POST
-- endpoint: /api/v1/topic
+
+- method: GET
+- endpoint: https://asma-app-anedstf2sq-et.a.run.app/api/v1/paper/{topicId}
+
+Response
 - body: 
     ```json
-       {
-           "dominant_topic": "number",
-           "Topic_perc": "double",
-           "keywords": "string",
-           "text":"string"
-       }
+        "status": "string",
+        "data": {
+            "count": "integer",
+            "jurnals": [
+                {
+                    "title":"string",
+                    "url": "string",
+                    "author": "string",
+                    "abstract": "string",
+                }
+            ]
+        }
     ```
+
+### get tweet based on topik 
+this api for getting the data about tweet taht corespond to topik
+
+Request
+- method: GET
+- endpoint: https://asma-app-anedstf2sq-et.a.run.app/api/v1/topic/{topicId}
+
 Response
 - body:
     ```json
         {
-            "status": "success",
+            "status": "string",
             "data": {
-                "topic_id": "string"
+                "count": "Integer",
+                "topic": [
+                    {
+                        "topic": "Integer",
+                        "text": "string",
+                        "datetime": "string"
+                    }
+                ]
             }
-        }
-    ```
-
-### post paper url 
-
-Request
-- method: POST
-- endpoint: api/v1/paper/{topicId:string}
-- body: 
-    ```json
-        {
-            "name": "string",
-            "url": "string",
-        }
-    ```
-Response
-- body: 
-    ```json
-        {
-            "status": "success",
-            "message": "string"
         }
     ```
 
