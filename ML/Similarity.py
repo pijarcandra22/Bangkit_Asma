@@ -10,6 +10,7 @@ class FinalSimilarity:
         self.journalData = pd.read_csv(journalData)
         self.tweetData   = pd.read_csv(tweetData)
         self.data = None
+        self.topik = 0
     
     def StringToArray(self,embeding):
         try:
@@ -29,12 +30,21 @@ class FinalSimilarity:
             result = [np.max(self.similarity(self.data['embeds'][x], embed)) for x in range(len(self.data))]
             return mean(result)
         except:
-            return None
+            return 0
         
-    def getSimilarity(self,idTopik):
+    def GetTopikSimilarity(self, embed):
+        self.data = self.tweetData[self.tweetData.Topik == self.topik].reset_index()
+        sim = self.GenerateSimilarity(embed)
+        return sim
+                
+
+    def getSimilarity(self):
         self.journalData['embeds'] = self.journalData['embeds'].apply(self.StringToArray)
         self.tweetData['embeds'] = self.tweetData['embeds'].apply(self.StringToArray)
-        self.data = self.tweetData[self.tweetData.Topik == idTopik].reset_index()
-        self.journalData['Similarity'] = self.journalData['embeds'].apply(self.GenerateSimilarity)
+        for i in range(len(self.tweetData['Topik'].value_counts())):
+            self.journalData['Topik_'+str(i)] = np.nan
+        for i in range(len(self.tweetData['Topik'].value_counts())):
+            self.topik = i
+            self.journalData['Topik_'+str(i)] = self.journalData['embeds'].apply(self.GetTopikSimilarity)
         self.journalData.to_csv('FinalDataUse.csv')
         self.journalData.to_json('FinalDataUse.json')

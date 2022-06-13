@@ -10,12 +10,14 @@
     <string name="descr">Menghadapi</string>
     <string name="desc">Buatmu Bernafas Lega</string>
     <string name="asma">ASMA</string>
-    <string name="tending_topik">Tending Topik</string>
+    <string name="tending_topik">Trending Topik</string>
     <string name="ta">TA</string>
     <string name="asistenmahasiswa">Asisten Mahasiswa :</string>
     <string name="buatmu_bernafas_lega">Buatmu Bernafas Lega</string>
     <string name="menghadapi">Menghadapi</string>
     <string name="asisten_mahasiswa_buatmu_bernafas_lega">Asisten Mahasiswa : Buatmu Bernafas Lega</string>
     <string name="menghadapi_ta">Menghadapi TA</string>
-    <string name="kalo_rame_lanjut_part_2">kalo rame lanjut part 2</string>
+    <string name="halaman_2">halaman 2</string>
+    <string name="txt_keyword">Keyword</string>
+    <string name="txt_topic">Topic</string>
 </resources>
