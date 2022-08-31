@@ -1,16 +1,30 @@
 const routes = (handler) => [
+    // {
+    //     method: 'POST',
+    //     path: '/api/v1/topic',
+    //     options: {
+    //         handler: handler.postTopicHandler,
+    //     }
+    // },
     {
-        method: 'POST',
-        path: '/api/v1/topic',
+        method: 'GET',
+        path: '/api/v1/topic/{topicId}',
         options: {
-            handler: handler.postTopicHandler,
+            handler: handler.getTopicHandler,
         }
     },
     {
         method: 'GET',
-        path: '/api/v1/topic',
+        path: '/api/v1/tweets/',
         options: {
-            handler: handler.getTopicHandler,
+            handler: handler.getAllTweetHandler,
+        }
+    },
+    {
+        method: 'GET',
+        path: '/api/v1/paper/{topicId}',
+        options: {
+            handler: handler.getAllPaperByTopicId,
         }
     }
 ]

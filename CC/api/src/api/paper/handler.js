@@ -1,6 +1,8 @@
 class PaperHandler{
     constructor(service) {
         this._service = service;
+
+        this.postPaperHandler = this.postPaperHandler.bind(this);
     }
 
     async postPaperHandler(request, h) {

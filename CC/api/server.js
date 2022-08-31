@@ -14,7 +14,7 @@ const serverStart = async () => {
     const paperService = new PaperService();
 
     const server = Hapi.server({
-        port: process.env.PORT,
+        port: 8080,
         host: process.env.HOST,
         routes: {
             cors: {
@@ -48,7 +48,13 @@ const serverStart = async () => {
         }
         return response.continue || response;
     })
-    
+    await server.route({
+        path: '/',
+        method: 'GET',
+        handler: (request, h) => {
+            return 'hello world'
+        }
+    })
     await server.start();
     console.log(`server running on ${server.info.uri}`);
 }
